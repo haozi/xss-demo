@@ -11,7 +11,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "sudo PORT=80 node .config/dev-server.js",
-    "build": "npm run clean && npm run lint && node .config/build.js",
+    "build": "npm run clean && npm run lint && node .script/buildBecode.js && node .config/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src .config .script test/*_spec.js",
