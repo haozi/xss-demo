@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sandbox</title>
+  </head>
+  <body>
+    <script>
+      (function() {
+        var rawAlert = self.alert
+        self.alert = function (n) {
+          if (n === 1) {
+            top.postMessage({success: true}, '*')
+          }
+          rawAlert(n)
+        }
+
+        {{{BE_CODE}}}
+
+        document.write(render(`{{{FE_CODE}}}`))
+      })()
+    </script>
+  </body>
+</html>
