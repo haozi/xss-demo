@@ -1,0 +1,136 @@
+@import '_variable';
+@import '_reset';
+
+html{
+  background: @g-white;
+}
+
+img {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+@y:-100px;
+.i-main {
+  position: relative;
+  height: 100%;
+  min-height: 920px;
+  width:1200px;
+  margin:0 auto;
+  background: url(../assets/bg.svg) no-repeat 50% @y;
+  background-size: 1200px auto;
+}
+
+.i-fe {
+  width: 55%;
+  position: absolute;
+  left:0;
+  top:0;
+  .i-browser {
+    position: absolute;
+    width: 487px;
+    height: 290px;
+    top: 170px + @y;
+    left: 37px;
+    .hd {
+      margin-top: 80px;
+      .url {
+        margin-left: 145px;
+        line-height: 30px;
+        height: 30px;
+        width: 100%;
+        input {
+          border: none;
+          outline: none;
+          padding-left: 0;
+          width: 220px;
+        }
+      }
+    }
+
+    .bd {
+      margin: 35px 25px 25px;
+      iframe {
+        border: none;
+        width: 100%;
+        height: 200px;
+      }
+    }
+
+  }
+
+  .i-code {
+    padding: (600px + @y) 30px 0 40px ;
+    h3 {
+      line-height: 30px;
+    }
+  }
+}
+
+.i-be {
+  width: 45%;
+  position: absolute;
+  right:0;
+  top:0;
+  .i-code {
+     padding: (600px + @y) 0 0 20px;
+    h3 {
+      line-height: 30px;
+    }
+  }
+
+}
+
+.CodeMirror {
+  border-radius: 10px;
+}
+.cm-input {
+  .CodeMirror{
+    height: auto;
+    min-height:170px;
+  }
+}
+.cm-html {
+  .CodeMirror {
+    height: auto;
+    min-height: 100px;
+  }
+}
+
+.cm-be {
+   .CodeMirror {
+    height: auto;
+    min-height: 300px;
+  }
+}
+
+
+.i-success {
+  position: fixed;
+  width:800px;
+  height:500px;
+  left:50%;
+  margin-left:-400px;
+  z-index: 9999;
+  background: url(../assets/success.svg) no-repeat;
+  background-size: contain;
+}
+
+.i-sidebar {
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  width: 200px;
+  border: 1px solid #777;
+  transform: translateZ(0);
+
+    a {
+      display:block;
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px dotted #777;
+    }
+
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sandbox</title>
+    <script>
+      (function() {
+        var rawAlert = self.alert
+        self.alert = function (n) {
+          if (Number(n) === 1) {
+            top.postMessage({success: true, src: 'sandbox'}, '*')
+            return
+          }
+          rawAlert(n)
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    {{{BODY}}}
+  </body>
+</html>
