@@ -112,7 +112,7 @@
         let tpl = '<!-- SERVER_ERROR -->'
         try {
           tpl = new Function(`
-            var alert,prompt,confirm,location,window,top,self,parent,document;
+            var alert,prompt,confirm,location,window,top,self,parent,document,eval,Function;
             return (
               ${beCode.trim()}
             )(\`${escapeJS(feCode)}\`)
