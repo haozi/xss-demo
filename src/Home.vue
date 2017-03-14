@@ -1,6 +1,4 @@
 <style lang="less">
-  // 这是网站的框架结构入口，不要在这里写过多业务有关视图代码
-  // 业务逻辑应该写在具体的 component 里
   @import url('./style/main.less');
 </style>
 
@@ -10,7 +8,7 @@
       <div class="i-browser">
         <div class="hd">
           <div class="url">
-            <span>https://xss.test/</span><input type="text">
+            <input type="text" :value="`http://xss.test/?input=${encodeURI(feCode)}`">
           </div>
         </div>
         <div class="bd">
@@ -111,12 +109,12 @@
       serverRender (feCode, beCode) {
         let tpl = '<!-- SERVER_ERROR -->'
         try {
-          tpl = new Function(`
+          tpl = String(new Function(`
             var alert,prompt,confirm,location,window,top,self,parent,document,eval,Function,execScript,setTimeout,setInterval;
             return (
               ${beCode.trim()}
             )(\`${escapeJS(feCode)}\`)
-          `)()
+          `)())
         } catch (e) {
           // console.log(e)
         }
@@ -144,15 +142,15 @@
     },
 
     watch: {
-      beCode(beCode) {
+      beCode (beCode) {
         this.inject(this.feCode, this.beCode)
       },
 
-      feCode() {
+      feCode () {
         this.inject(this.feCode, this.beCode)
       },
 
-      '$route.params'() {
+      '$route.params' () {
         this.updateInitBeCode()
       }
     }

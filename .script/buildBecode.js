@@ -11,17 +11,22 @@ class C {
   }
 
   run () {
-    let d = this.ls(this.src).map(item => ({
-      n: PATH.basename(item, '.js'),
-      path: item
-    }))
+    let d = this.ls(this.src).map(item => {
+      const names = PATH.basename(item, '.js').split('.')
+      return {
+        n: names[0],
+        title: names[1] || '',
+        path: item
+      }
+    })
     .filter(item => item.n !== 'index')
     .sort((a, b) => a.n > b.n)
-
+    console.log(d)
     d.forEach(item => {
       const beCode = this.read(item.path).trim()
       beCode && (this.data[item.n] = {
-        beCode
+        beCode,
+        title: item.title
       })
     })
 
