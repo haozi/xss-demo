@@ -44,7 +44,8 @@ img {
           border: none;
           outline: none;
           padding-left: 0;
-          width: 220px;
+          width: 310px;
+          color:#979797;
         }
       }
     }
@@ -82,25 +83,27 @@ img {
 
 }
 
-.CodeMirror {
-  border-radius: 10px;
-}
-.cm-input {
+.cm-input, .cm-html, .cm-be {
   .CodeMirror{
+    border-radius: 10px;
     height: auto;
+  }
+  .CodeMirror-scroll {
+    cursor: text;
     min-height:170px;
   }
 }
 .cm-html {
-  .CodeMirror {
-    height: auto;
+  .CodeMirror-scroll {
     min-height: 100px;
+  }
+  .CodeMirror-code{
+    padding-left: 10px;
   }
 }
 
 .cm-be {
-   .CodeMirror {
-    height: auto;
+   .CodeMirror-scroll {
     min-height: 300px;
   }
 }
