@@ -18,7 +18,7 @@
     "clean": "rm -rf dist .nyc_output coverage; mkdir dist",
     "prepublish": "npm run build",
     "test": "npm run unit && npm run e2e",
-    "deploy": "sh .sciprt/deploy.sh"
+    "deploy": "sh .script/deploy.sh"
   },
   "dependencies": {
     "codemirror": "^5.24.2",
