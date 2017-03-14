@@ -85,5 +85,52 @@ img {
 .CodeMirror {
   border-radius: 10px;
 }
+.cm-input {
+  .CodeMirror{
+    height: auto;
+    min-height:170px;
+  }
+}
+.cm-html {
+  .CodeMirror {
+    height: auto;
+    min-height: 100px;
+  }
+}
+
+.cm-be {
+   .CodeMirror {
+    height: auto;
+    min-height: 300px;
+  }
+}
 
 
+.i-success {
+  position: fixed;
+  width:800px;
+  height:500px;
+  left:50%;
+  margin-left:-400px;
+  z-index: 9999;
+  background: url(../assets/success.svg) no-repeat;
+  background-size: contain;
+}
+
+.i-sidebar {
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  width: 200px;
+  border: 1px solid #777;
+  transform: translateZ(0);
+
+    a {
+      display:block;
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px dotted #777;
+    }
+
+}

@@ -1,6 +1,6 @@
 function render (input) {
-  const stripTagsRE = /<\/?[^>]+>/gi
+  const stripTagsRe = /<\/?[^>]+>/gi
 
-  input = input.replace(stripTagsRE, '')
+  input = input.replace(stripTagsRe, '')
   return `<article>${input}</article>`
 }

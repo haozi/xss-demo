@@ -6,8 +6,9 @@
       (function() {
         var rawAlert = self.alert
         self.alert = function (n) {
-          if (n === 1) {
-            top.postMessage({success: true}, '*')
+          if (Number(n) === 1) {
+            top.postMessage({success: true, src: 'sandbox'}, '*')
+            return
           }
           rawAlert(n)
         }

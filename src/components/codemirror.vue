@@ -1,5 +1,7 @@
 <template>
-  <textarea ref="t"></textarea>
+  <div>
+    <textarea ref="t"></textarea>
+  </div>
 </template>
 
 <style>
@@ -59,7 +61,9 @@
         matchBrackets: true,
         showCursorWhenSelecting: true,
         theme: 'monokai',
-        tabSize: 2
+        tabSize: 2,
+        lineWrapping: true,
+        viewportMargin: Infinity
       })
       this.editor.setSize(this.width, this.height)
       this.editor.setValue(s(this.code))

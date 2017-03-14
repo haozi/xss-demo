@@ -5,7 +5,7 @@
 </style>
 
 <template>
-  <div id="app" class="i-main">
+  <div class="i-main">
     <div class="i-fe">
       <div class="i-browser">
         <div class="hd">
@@ -14,26 +14,34 @@
           </div>
         </div>
         <div class="bd">
-          <iframe ref="sandbox"></iframe>
+          <iframe ref="sandbox" name="sandbox"></iframe>
         </div>
       </div>
 
       <div class="i-code">
         <h3>input code</h3>
-        <code-mirror :code="initFeCode" :autofocus="true" @change="updateFeCode" :height="170"></code-mirror>
+        <code-mirror class="cm-input" :code="initFeCode" :autofocus="true" @change="updateFeCode"></code-mirror>
 
         <h3>html</h3>
-        <code-mirror :code="raw" :read-only="true" :line-numbers="false" :height="100" mode="application/x-ejs"></code-mirror>
+        <code-mirror class="cm-html" :code="raw" :read-only="true" :line-numbers="false" mode="application/x-ejs"></code-mirror>
       </div>
     </div>
 
     <div class="i-be">
       <div class="i-code">
         <h3>server code</h3>
-        <code-mirror :code="initBeCode" @change="updateBeCode"></code-mirror>
+        <code-mirror class="cm-be" :code="initBeCode" @change="updateBeCode"></code-mirror>
       </div>
     </div>
 
+    <div class="i-sidebar">
+      <ul>
+        <template v-for="(item, key) of examData">
+          <router-link :to="`/exam/${key}`" tag="a">{{key}}</router-link>
+        </template>
+      </ul>
+    </div>
+    <div class="i-success" v-if="success && showSuccess" @click="showSuccess=false"></div>
     <router-view></router-view>
   </div>
 </template>
@@ -62,18 +70,26 @@
         initFeCode: '',
         beCode: '',
         feCode: '',
-        raw: ''
+        raw: '',
+        success: false,
+        showSuccess: false,
+        examData: exam
       }
     },
 
     mounted () {
-      let data
-      data = exam[this.$route.params.id]
-      if (!data) {
-        this.$router.push('/404')
-        return
-      }
-      this.initBeCode = data.beCode
+      this.updateInitBeCode()
+
+      top.addEventListener('message', e => {
+        const data = e.data
+        if (!(e.origin === top.location.origin && data.src === 'sandbox' && data.success === true)) return
+
+        this.success = data.success
+        this.showSuccess = true
+        setTimeout(() => {
+          this.showSuccess = false
+        }, 1000)
+      })
     },
 
     components: {
@@ -95,11 +111,27 @@
       serverRender (feCode, beCode) {
         let tpl = '<!-- SERVER_ERROR -->'
         try {
-          tpl = new Function(`return (${beCode.trim()})(\`${escapeJS(feCode)}\`)`)()
-        } catch (e) {}
+          tpl = new Function(`
+            var alert,prompt,confirm,location,window,top,self,parent,document;
+            return (
+              ${beCode.trim()}
+            )(\`${escapeJS(feCode)}\`)
+          `)()
+        } catch (e) {
+          // console.log(e)
+        }
         this.raw = tpl
-        console.info(tpl)
+        // console.info(tpl)
         return tpl
+      },
+
+      updateInitBeCode () {
+        let data = this.examData[this.$route.params.id]
+        if (!data) {
+          this.$router.push('/404')
+          return
+        }
+        this.initBeCode = data.beCode
       },
 
       updateBeCode (newVal) {
@@ -118,6 +150,10 @@
 
       feCode() {
         this.inject(this.feCode, this.beCode)
+      },
+
+      '$route.params'() {
+        this.updateInitBeCode()
       }
     }
   }
