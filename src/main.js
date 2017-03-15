@@ -1,7 +1,7 @@
 /**
  * 这是网站的启动入口，用于初始化全局配置，不要在这里写过多业务逻辑
  */
-
+import 'babel-polyfill'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
@@ -9,7 +9,7 @@ import VueRouter from 'vue-router'
 
 import App from './App'
 import Router from './router'
-// import * as filters from './filter'
+import * as filters from './filter'
 import store from './vuex/store'
 // import {sync} from 'vuex-router-sync'
 
@@ -24,9 +24,9 @@ Vue.use(Vuex)
 // })
 
 // 自定义过滤器
-// Object.keys(filters).forEach(name => {
-//   Vue.filter(name, filters[name])
-// })
+Object.keys(filters).forEach(name => {
+  Vue.filter(name, filters[name])
+})
 
 const router = new VueRouter(Router)
 router.beforeEach((to, from, next) => {
@@ -47,3 +47,13 @@ new Vue({
   template: '<App/>',
   components: {App}
 })
+
+// const applicationCache = window.applicationCache
+// if (applicationCache) {
+//   applicationCache.addEventListener('updateready', () => {
+//     if (applicationCache.status === applicationCache.UPDATEREADY) {
+//       applicationCache.swapCache()
+//       window.location.reload(true)
+//     }
+//   })
+// }
