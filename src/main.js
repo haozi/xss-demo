@@ -9,7 +9,7 @@ import VueRouter from 'vue-router'
 
 import App from './App'
 import Router from './router'
-// import * as filters from './filter'
+import * as filters from './filter'
 import store from './vuex/store'
 // import {sync} from 'vuex-router-sync'
 
@@ -24,9 +24,9 @@ Vue.use(Vuex)
 // })
 
 // 自定义过滤器
-// Object.keys(filters).forEach(name => {
-//   Vue.filter(name, filters[name])
-// })
+Object.keys(filters).forEach(name => {
+  Vue.filter(name, filters[name])
+})
 
 const router = new VueRouter(Router)
 router.beforeEach((to, from, next) => {

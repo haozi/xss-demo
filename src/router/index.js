@@ -1,15 +1,15 @@
-import Home from '../Home'
+import Exam from '../Exam'
 
 export default {
   mode: 'hash',
   routes: [
     {
       path: '/',
-      redirect: '/exam/0'
+      redirect: '/0'
     },
     {
-      path: '/exam/:id',
-      component: Home
+      path: '/:id',
+      component: Exam
     },
     {
       path: '*',

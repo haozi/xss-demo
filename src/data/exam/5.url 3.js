@@ -7,7 +7,7 @@ function render (input) {
             .replace(/>/g, '&gt;')
   }
 
-  let domainRe = /^https?:\/\/www\.segmentfault\.com/
+  let domainRe = /^https?:\/\/www\.segmentfault\.com\//
   if (domainRe.test(input)) {
     return `<script src="${escapeHtml(input)}"></script>`
   }

@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "codemirror": "^5.24.2",
+    "lodash.merge": "^4.6.0",
     "vue": "^2.0.8",
     "vue-lazyload": "^0.8.3",
     "vue-router": "^2.0.1",

@@ -65,6 +65,10 @@ img {
     padding: (600px + @y) 30px 0 40px ;
     h3 {
       line-height: 30px;
+      em {
+        color: #ccc;
+        font-size: 13px;
+      }
     }
   }
 }
@@ -116,24 +120,41 @@ img {
   left:50%;
   margin-left:-400px;
   z-index: 9999;
-  background: url(../assets/success.svg) no-repeat;
+  background: url(../assets/success.png) no-repeat;
   background-size: contain;
 }
 
 .i-sidebar {
   position: fixed;
-  top:0;
-  bottom:0;
+  z-index: 100;
+  background: rgba(255,255,255, 0.8);
+  top:30px;
+  bottom:30px;
+  border-radius:0 10px 10px 0;
   left:0;
-  width: 200px;
-  border: 1px solid #777;
+  width: 100px;
+  border: 1px solid #979797;
   transform: translateZ(0);
-
+  ul {
+    margin-top: 20px;
+  }
     a {
       display:block;
       height: 30px;
       line-height: 30px;
-      border-bottom: 1px dotted #777;
+      border-bottom: 1px dotted #979797;
+      margin: 0 10px;
+      padding-left: 10px;
+      text-decoration: none;
+      color:#979797;
+      .right {
+        color: green;
+        position: absolute;
+        right:15px;
+      }
     }
-
+    .router-link-active {
+      color: blue;
+      border-bottom:1px solid blue;
+    }
 }

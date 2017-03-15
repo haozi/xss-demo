@@ -7,27 +7,34 @@ class C {
     this.root = PATH.resolve(__dirname, '../')
     this.src = `${this.root}/src/data/exam`
     this.dist = `${this.root}/src/data/exam/index.js`
-    this.data = {}
+    this.data = {
+      index: [],
+      data: {}
+    }
   }
 
   run () {
     let d = this.ls(this.src).map(item => {
       const names = PATH.basename(item, '.js').split('.')
       return {
-        n: names[0],
+        n: +names[0],
         title: names[1] || '',
         path: item
       }
     })
-    .filter(item => item.n !== 'index')
+    .filter(item => isFinite(item.n))
     .sort((a, b) => a.n > b.n)
-    console.log(d)
+
     d.forEach(item => {
       const beCode = this.read(item.path).trim()
-      beCode && (this.data[item.n] = {
+      if (!beCode) return
+      this.data.data[item.n] = {
+        // success: false,
+        // feCode: '',
         beCode,
         title: item.title
-      })
+      }
+      this.data.index.push(item.n)
     })
 
     this.write(this.dist, `export default ${JSON.stringify(this.data, null, 2)}`)
