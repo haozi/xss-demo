@@ -21,6 +21,7 @@
     "deploy": "sh .script/deploy.sh"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "codemirror": "^5.24.2",
     "lodash.merge": "^4.6.0",
     "vue": "^2.0.8",

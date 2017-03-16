@@ -1,4 +1,5 @@
 'use strict'
+require('babel-polyfill')
 const PATH = require('path')
 const FS = require('fs')
 
@@ -23,18 +24,17 @@ class C {
       }
     })
     .filter(item => isFinite(item.n))
-    .sort((a, b) => a.n > b.n)
+    .sort((a, b) => a.n > b.n ? 1 : -1)
 
     d.forEach(item => {
+      const n16 = '0x' + Number(item.n).toString(16).padStart(2, 0).toUpperCase()
       const beCode = this.read(item.path).trim()
       if (!beCode) return
-      this.data.data[item.n] = {
-        // success: false,
-        // feCode: '',
+      this.data.data[n16] = {
         beCode,
         title: item.title
       }
-      this.data.index.push(item.n)
+      this.data.index.push(n16)
     })
 
     this.write(this.dist, `export default ${JSON.stringify(this.data, null, 2)}`)

@@ -4,3 +4,4 @@ function render (input) {
   input = input.replace(stripTagsRe, '')
   return `<article>${input}</article>`
 }
+

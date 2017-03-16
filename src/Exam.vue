@@ -39,7 +39,7 @@
       <ul>
         <template v-for="(item, index) of examData.index">
           <router-link :to="`/${item}`" tag="a">
-            Q {{index}}
+            {{index | to16}}
             <span v-if="examData.data[item].success" class="right">✓</span>
           </router-link>
         </template>
@@ -86,11 +86,9 @@
 
     mounted () {
       this.updateCurData()
-
       top.addEventListener('message', e => {
         const data = e.data
         if (!(e.origin === top.location.origin && data.src === 'sandbox' && data.success === true)) return
-
         this.curData.success = true
         this.showSuccess = true
       })
@@ -130,7 +128,7 @@
       updateCurData () {
         let data = this.examData.data[this.$route.params.id]
         if (!data) {
-          this.$router.push('/404')
+          this.$router.push('/')
           return
         }
         this.curData = data
@@ -144,7 +142,14 @@
 
       updateFeCode (newVal) {
         this.curData.feCode = newVal
+        this.curData.success = false
         ls.set('xssData', this.examData)
+      }
+    },
+
+    filters: {
+      to16 (n) {
+        return `0x${Number(n).toString(16).padStart(2, 0).toUpperCase()}`
       }
     },
 

@@ -5,7 +5,7 @@ export default {
   routes: [
     {
       path: '/',
-      redirect: '/0'
+      redirect: '/0x00'
     },
     {
       path: '/:id',

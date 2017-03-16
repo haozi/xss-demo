@@ -1,5 +1,5 @@
 /* global localStorage */
-const LOCAL_V = 0
+const LOCAL_V = 1
 export const ls = {
   get (k) {
     let v = null

@@ -1,7 +1,7 @@
 /**
  * 这是网站的启动入口，用于初始化全局配置，不要在这里写过多业务逻辑
  */
-
+import 'babel-polyfill'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
