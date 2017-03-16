@@ -11,7 +11,7 @@ let useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
-    'x': './src/main.js'
+    'app': './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,

@@ -11,7 +11,7 @@
 
 <script>
   import CodeMirror from 'codemirror'
-  import 'codemirror/keyMap/sublime'
+  import 'codemirror/keymap/sublime'
   import 'codemirror/mode/javascript/javascript'
   import 'codemirror/mode/htmlembedded/htmlembedded'
 

@@ -44,11 +44,11 @@ export default {
       "title": "strip tag"
     },
     "0x07": {
-      "beCode": "function render (input) {\n  let domainRe = /^https?:\\/\\/www\\.tmall\\.com/\n  if (domainRe.test(input)) {\n    return `<script src=\"${input}\"></script>`\n  }\n  return 'Invalid URL'\n}",
+      "beCode": "function render (input) {\n  let domainRe = /^https?:\\/\\/www\\.segmentfault\\.com/\n  if (domainRe.test(input)) {\n    return `<script src=\"${input}\"></script>`\n  }\n  return 'Invalid URL'\n}",
       "title": "url 1"
     },
     "0x08": {
-      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n  }\n\n  let domainRe = /^https?:\\/\\/www\\.tmall\\.com/\n  if (domainRe.test(input)) {\n    return `<script src=\"${escapeHtml(input)}\"></script>`\n  }\n  return 'Invalid URL'\n}",
+      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n  }\n\n  let domainRe = /^https?:\\/\\/www\\.segmentfault\\.com/\n  if (domainRe.test(input)) {\n    return `<script src=\"${escapeHtml(input)}\"></script>`\n  }\n  return 'Invalid URL'\n}",
       "title": "url 2"
     },
     "0x09": {
