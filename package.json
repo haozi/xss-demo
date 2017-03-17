@@ -76,6 +76,7 @@
     "nightwatch": "^0.9.9",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
+    "raw-loader": "^0.5.1",
     "selenium-server": "^3.0.1",
     "shelljs": "^0.7.5",
     "sinon": "^1.17.6",

@@ -30,7 +30,7 @@ ls.set('xssV', LOCAL_V)
 export const clone = d => (JSON.parse(JSON.stringify(d)))
 
 export const escapeJS = (jsStr) => {
-  return String(jsStr).trim()
+  return String(jsStr)
     .replace(/'/g, "\\'")
     .replace(/"/g, '\\"')
     .replace(/`/g, '\\`')
