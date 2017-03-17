@@ -117,7 +117,7 @@
         try {
           let code = `(function(){
             'use strict';
-            var alert,prompt,confirm,location,window,top,self,parent,document,Function,execScript,setTimeout,setInterval,console;
+            var alert,prompt,confirm,location,window,top,self,parent,document,Function,execScript,setTimeout,setInterval,console,localStorage,sessionStorage;
             return (
               ${beCode.trim()}
             )(\`${escapeJS(feCode)}\`)
