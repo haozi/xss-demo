@@ -1,5 +1,5 @@
 function render (input) {
-  input = input.replace(/[\n</"']/g, '')
+  input = input.replace(/[</"']/g, '')
   return `
     <script>
           // alert('${input}')

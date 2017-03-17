@@ -17,7 +17,7 @@
 
   function s(any) {
     any = String(any).trim()
-    return any ? any + '\n' : any
+    return any // ? any + '\n' : any
   }
 
   export default {
