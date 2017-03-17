@@ -47,13 +47,3 @@ new Vue({
   template: '<App/>',
   components: {App}
 })
-
-// const applicationCache = window.applicationCache
-// if (applicationCache) {
-//   applicationCache.addEventListener('updateready', () => {
-//     if (applicationCache.status === applicationCache.UPDATEREADY) {
-//       applicationCache.swapCache()
-//       window.location.reload(true)
-//     }
-//   })
-// }

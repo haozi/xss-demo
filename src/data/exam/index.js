@@ -12,7 +12,8 @@ export default {
     "0x09",
     "0x0A",
     "0x0B",
-    "0x0C"
+    "0x0C",
+    "0x0D"
   ],
   "data": {
     "0x00": {
@@ -66,6 +67,10 @@ export default {
     "0x0C": {
       "beCode": "function render (input) {\n  input = input.replace(/<([a-zA-Z])/g, '<_$1')\n  input = input.toUpperCase()\n  return '<h1>' + input + '</h1>'\n}",
       "title": "a2"
+    },
+    "0x0D": {
+      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n  }\n  return `<a href=\"\" onclick=\"alert('${escapeHtml(input)}')\"></a>`\n}",
+      "title": "html"
     }
   }
 }
