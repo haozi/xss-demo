@@ -13,7 +13,7 @@ export default {
     "0x0A",
     "0x0B",
     "0x0C",
-    "0x0C",
+    "0x0D",
     "0x0E",
     "0x0F"
   ],
@@ -43,7 +43,7 @@ export default {
       "title": "comment"
     },
     "0x06": {
-      "beCode": "function render (input) {\n  input =  input.replace(/auto|on.*=|>/ig, '_')\n  return `<input value=1 ${input} type=\"text\">`\n}",
+      "beCode": "function render (input) {\n  input = input.replace(/auto|on.*=|>/ig, '_')\n  return `<input value=1 ${input} type=\"text\">`\n}",
       "title": "remove right tag"
     },
     "0x07": {
@@ -67,6 +67,10 @@ export default {
       "title": "uppercase"
     },
     "0x0C": {
+      "beCode": "function render (input) {\n  input = input.replace(/script/g, '')\n  input = input.toUpperCase()\n  return '<h1>' + input + '</h1>'\n}",
+      "title": "a1"
+    },
+    "0x0D": {
       "beCode": "function render (input) {\n  input = input.replace(/[\\n</\"']/g, '')\n  return `\n    <script>\n          // alert('${input}')\n    </script>\n  `\n}",
       "title": "line-break"
     },
