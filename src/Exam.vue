@@ -51,6 +51,7 @@
 </template>
 
 <script>
+  const buble = require('buble')
   import merge from 'lodash.merge'
   import { ls, clone, escapeJS, compile } from './lib/util'
   import codeMirror from './components/codemirror'
@@ -114,13 +115,18 @@
       serverRender (feCode, beCode) {
         let tpl = '<!-- SERVER_ERROR -->'
         try {
-          tpl = String(new Function(`
-            var alert,prompt,confirm,location,window,top,self,parent,document,eval,Function,execScript,setTimeout,setInterval,console;
+          let code = `(function(){
+            'use strict';
+            var alert,prompt,confirm,location,window,top,self,parent,document,Function,execScript,setTimeout,setInterval,console,localStorage,sessionStorage;
             return (
               ${beCode.trim()}
             )(\`${escapeJS(feCode)}\`)
-          `)())
-        } catch (e) {}
+          })()`
+          code = buble.transform(code).code
+          tpl = String(new Function('return' + code)())
+        } catch (e) {
+          console.error('SERVER_ERROR ', e.message)
+        }
         this.raw = tpl
         return tpl
       },
