@@ -89,7 +89,7 @@ export default {
       "title": "window var"
     },
     "0x11": {
-      "beCode": "function render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  return `\n<script>\n  window.data = '${escapeJs(input)}'\n</script>\n  `\n}",
+      "beCode": "// 本题无解\nfunction render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  return `\n<script>\n  window.data = '${escapeJs(input)}'\n</script>\n  `\n}",
       "title": "window var"
     }
   }

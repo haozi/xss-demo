@@ -10,6 +10,7 @@
   document.body.appendChild(s)
 })(document)
 
+import cookie from 'browser-cookies'
 import 'babel-polyfill'
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -48,6 +49,29 @@ app.id = 'app'
 document.body.innerHTML = ''
 document.body.appendChild(app)
 
+// pwa
+// if (navigator.serviceWorker) {
+//   navigator.serviceWorker.register('sw.js')
+//     .then(function (registration) {
+//       console.log('Registered events at scope: ', registration.scope)
+//     })
+// }
+
+const alert = window.alert
+const prompt = window.prompt
+if (!cookie.get('uid')) {
+  const reg = /[|~!@#$%^&*()_+<>?:"{},./;'\]]/g
+  const userName = (prompt('请输入你的昵称 (7 个字以内)') || '').trim()
+  if (!(userName && !reg.test(userName) && userName.length <= 7)) {
+    alert('昵称非法')
+    throw new Error('昵称非法')
+  }
+
+  const uid = `${userName}|${Date.now()}`
+  cookie.set('uid', uid, {expires: 3650})
+  alert(`${userName} 你好， 在 input code 框内输入代码，以至弹出 alert(1) 为过关`)
+}
+
 /* eslint no-new: 0 */
 new Vue({
   router,
@@ -56,11 +80,3 @@ new Vue({
   template: '<App/>',
   components: {App}
 })
-
-// pwa
-// if (navigator.serviceWorker) {
-//   navigator.serviceWorker.register('sw.js')
-//     .then(function (registration) {
-//       console.log('Registered events at scope: ', registration.scope)
-//     })
-// }
