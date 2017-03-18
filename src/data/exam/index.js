@@ -73,7 +73,7 @@ export default {
       "title": "a1"
     },
     "0x0D": {
-      "beCode": "function render (input) {\n  input = input.replace(/[\\n</\"']/g, '')\n  return `\n    <script>\n          // alert('${input}')\n    </script>\n  `\n}",
+      "beCode": "function render (input) {\n  input = input.replace(/[</\"']/g, '')\n  return `\n    <script>\n          // alert('${input}')\n    </script>\n  `\n}",
       "title": "line-break"
     },
     "0x0E": {
@@ -89,7 +89,7 @@ export default {
       "title": "window var"
     },
     "0x11": {
-      "beCode": "function render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n  }\n  return `\n<script>\n  window.data = ${escapeJs(input)}\n</script>\n  `\n}",
+      "beCode": "function render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  return `\n<script>\n  window.data = '${escapeJs(input)}'\n</script>\n  `\n}",
       "title": "window var"
     }
   }

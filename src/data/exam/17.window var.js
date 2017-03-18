@@ -16,7 +16,7 @@ function render (input) {
   }
   return `
 <script>
-  window.data = ${escapeJs(input)}
+  window.data = '${escapeJs(input)}'
 </script>
   `
 }
