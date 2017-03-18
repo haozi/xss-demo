@@ -4,9 +4,6 @@
 
 <template>
   <div class="i-main">
-    <pre style="display:none">
-      {{curData}}
-    </pre>
     <div class="i-fe">
       <div class="i-browser">
         <div class="hd">
@@ -52,6 +49,7 @@
 
 <script>
   const buble = require('buble')
+  import cookie from 'browser-cookies'
   import merge from 'lodash.merge'
   import { ls, clone, escapeJS, compile } from './lib/util'
   import codeMirror from './components/codemirror'
@@ -87,11 +85,16 @@
 
     mounted () {
       this.updateCurData()
+      let timer
       top.addEventListener('message', e => {
         const data = e.data
         if (!(e.origin === top.location.origin && data.src === 'sandbox' && data.success === true)) return
         this.curData.success = true
         this.showSuccess = true
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          window._czc && window._czc.push(['_trackEvent', ((cookie.get('uid') || '').replace('|', '-')), this.curData.beCode, this.curData.feCode])
+        }, 200)
       })
     },
 

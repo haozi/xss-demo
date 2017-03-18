@@ -10,6 +10,16 @@
   document.body.appendChild(s)
 })(document)
 
+const applicationCache = window.applicationCache
+if (applicationCache) {
+  applicationCache.addEventListener('updateready', () => {
+    if (applicationCache.status === applicationCache.UPDATEREADY) {
+      applicationCache.swapCache()
+      window.location.reload()
+    }
+  })
+}
+
 import cookie from 'browser-cookies'
 import 'babel-polyfill'
 import Vue from 'vue'
