@@ -90,6 +90,7 @@
       top.addEventListener('message', e => {
         const data = e.data
         if (!(e.origin === top.location.origin && data.src === 'sandbox' && data.success === true)) return
+        window._czc && window._czc.push(['_trackEvent', this.$route.params.id, this.curData.beCode, this.curData.feCode])
         this.curData.success = true
         this.showSuccess = true
       })
