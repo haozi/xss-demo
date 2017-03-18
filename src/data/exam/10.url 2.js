@@ -5,9 +5,10 @@ function render (input) {
             .replace(/"/g, '&quot;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
+            .replace(/\//g, '&#x2f')
   }
 
-  let domainRe = /^https?:\/\/www\.segmentfault\.com/
+  const domainRe = /^https?:\/\/www\.segmentfault\.com/
   if (domainRe.test(input)) {
     return `<script src="${escapeHtml(input)}"></script>`
   }

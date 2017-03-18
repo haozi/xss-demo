@@ -61,7 +61,7 @@ export default {
       "title": "url 1"
     },
     "0x0A": {
-      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n  }\n\n  let domainRe = /^https?:\\/\\/www\\.segmentfault\\.com/\n  if (domainRe.test(input)) {\n    return `<script src=\"${escapeHtml(input)}\"></script>`\n  }\n  return 'Invalid URL'\n}",
+      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n            .replace(/\\//g, '&#x2f')\n  }\n\n  const domainRe = /^https?:\\/\\/www\\.segmentfault\\.com/\n  if (domainRe.test(input)) {\n    return `<script src=\"${escapeHtml(input)}\"></script>`\n  }\n  return 'Invalid URL'\n}",
       "title": "url 2"
     },
     "0x0B": {
@@ -89,7 +89,7 @@ export default {
       "title": "window var"
     },
     "0x11": {
-      "beCode": "function render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  return `\n<script>\n  window.data = '${escapeJs(input)}'\n</script>\n  `\n}",
+      "beCode": "// 本题无解\nfunction render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  return `\n<script>\n  window.data = '${escapeJs(input)}'\n</script>\n  `\n}",
       "title": "window var"
     }
   }
