@@ -51,7 +51,7 @@ export default {
       "title": "strip tag"
     },
     "0x08": {
-      "beCode": "function render (src) {\n  src = src.replace(/<\\/style>/g, '/* \\u574F\\u4EBA */')\n  return `\n    <style>\n      ${src}\n    </style>\n  `\n}",
+      "beCode": "function render (src) {\n  src = src.replace(/<\\/style>/ig, '/* \\u574F\\u4EBA */')\n  return `\n    <style>\n      ${src}\n    </style>\n  `\n}",
       "title": "style"
     },
     "0x09": {
@@ -67,7 +67,7 @@ export default {
       "title": "uppercase"
     },
     "0x0C": {
-      "beCode": "function render (input) {\n  input = input.replace(/script/g, '')\n  input = input.toUpperCase()\n  return '<h1>' + input + '</h1>'\n}",
+      "beCode": "function render (input) {\n  input = input.replace(/script/ig, '')\n  input = input.toUpperCase()\n  return '<h1>' + input + '</h1>'\n}",
       "title": "a1"
     },
     "0x0D": {
@@ -79,7 +79,7 @@ export default {
       "title": "a2"
     },
     "0x0F": {
-      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n  }\n  return `<a href=\"\" onclick=\"alert('${escapeHtml(input)}')\"></a>`\n}",
+      "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n            .replace(/\\//g, '&#x2f;')\n  }\n  return `<img src onerror=\"console.error('${escapeHtml(input)}')\">`\n}",
       "title": "html"
     }
   }

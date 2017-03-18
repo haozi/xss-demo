@@ -1,5 +1,5 @@
 function render (src) {
-  src = src.replace(/<\/style>/g, '/* \u574F\u4EBA */')
+  src = src.replace(/<\/style>/ig, '/* \u574F\u4EBA */')
   return `
     <style>
       ${src}

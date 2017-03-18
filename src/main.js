@@ -1,6 +1,15 @@
 /**
  * 这是网站的启动入口，用于初始化全局配置，不要在这里写过多业务逻辑
  */
+
+;(function (document) {
+  const s = document.createElement('script')
+  s.src = 'https://s4.cnzz.com/z_stat.php?id=1261523779&web_id=1261523779'
+  s.charset = 'utf-8'
+  s.async = true
+  document.body.appendChild(s)
+})(document)
+
 import 'babel-polyfill'
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -47,3 +56,11 @@ new Vue({
   template: '<App/>',
   components: {App}
 })
+
+// pwa
+// if (navigator.serviceWorker) {
+//   navigator.serviceWorker.register('sw.js')
+//     .then(function (registration) {
+//       console.log('Registered events at scope: ', registration.scope)
+//     })
+// }

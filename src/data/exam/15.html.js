@@ -5,6 +5,7 @@ function render (input) {
             .replace(/"/g, '&quot;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
+            .replace(/\//g, '&#x2f;')
   }
-  return `<a href="" onclick="alert('${escapeHtml(input)}')"></a>`
+  return `<img src onerror="console.error('${escapeHtml(input)}')">`
 }
