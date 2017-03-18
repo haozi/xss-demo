@@ -69,7 +69,7 @@ if (!cookie.get('uid')) {
 
   const uid = `${userName}|${Date.now()}`
   cookie.set('uid', uid, {expires: 3650})
-  alert(`${userName} 你好， 在 input code 框内输入代码，以至弹出 alert(1) 为过关`)
+  alert(`${userName} 你好， 请在 input code 框内输入代码，以至弹出 alert(1) 为过关`)
 }
 
 /* eslint no-new: 0 */
