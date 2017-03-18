@@ -15,7 +15,9 @@ export default {
     "0x0C",
     "0x0D",
     "0x0E",
-    "0x0F"
+    "0x0F",
+    "0x10",
+    "0x11"
   ],
   "data": {
     "0x00": {
@@ -81,6 +83,14 @@ export default {
     "0x0F": {
       "beCode": "function render (input) {\n  function escapeHtml(s) {\n    return s.replace(/&/g, '&amp;')\n            .replace(/'/g, '&#39;')\n            .replace(/\"/g, '&quot;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n            .replace(/\\//g, '&#x2f;')\n  }\n  return `<img src onerror=\"console.error('${escapeHtml(input)}')\">`\n}",
       "title": "html"
+    },
+    "0x10": {
+      "beCode": "function render (input) {\n  return `\n<script>\n  window.data = ${input}\n</script>\n  `\n}",
+      "title": "window var"
+    },
+    "0x11": {
+      "beCode": "function render (input) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n  }\n  return `\n<script>\n  window.data = ${escapeJs(input)}\n</script>\n  `\n}",
+      "title": "window var"
     }
   }
 }

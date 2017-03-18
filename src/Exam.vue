@@ -122,10 +122,11 @@
               ${beCode.trim()}
             )(\`${escapeJS(feCode)}\`)
           })()`
+          console.log(code)
           code = buble.transform(code).code
           tpl = String(new Function('return' + code)())
         } catch (e) {
-          console.error('SERVER_ERROR ', e.message)
+          console.error('SERVER_ERROR ', e.stack)
         }
         this.raw = tpl
         return tpl

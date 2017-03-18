@@ -31,10 +31,14 @@ export const clone = d => (JSON.parse(JSON.stringify(d)))
 
 export const escapeJS = (jsStr) => {
   return String(jsStr)
-    .replace(/'/g, "\\'")
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, '\\\'')
     .replace(/"/g, '\\"')
     .replace(/`/g, '\\`')
     .replace(/\//g, '\\/')
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '\\r')
+    .replace(/\t/g, '\\t')
 }
 
 export const compile = (tpl, data = {}) => {
