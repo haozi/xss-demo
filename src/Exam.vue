@@ -1,7 +1,3 @@
-<style lang="less">
-  @import url('./style/main.less');
-</style>
-
 <template>
   <div class="i-main">
     <div class="i-fe">
