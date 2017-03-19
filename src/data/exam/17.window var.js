@@ -1,4 +1,3 @@
-// 本题无解
 function render (input) {
   function escapeJs (s) {
     return String(s)
