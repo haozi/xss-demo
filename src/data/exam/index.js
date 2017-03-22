@@ -18,8 +18,7 @@ export default {
     "0x0F",
     "0x10",
     "0x64",
-    "0x65",
-    "0x66"
+    "0x65"
   ],
   "data": {
     "0x00": {
@@ -95,11 +94,7 @@ export default {
       "title": "alf nu"
     },
     "0x65": {
-      "beCode": "// from alf.nu\nfunction render (s) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            // .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  s = escapeJs(s)\n  return `\n<script>\n  var url = 'javascript:console.log(\"${s}\")'\n  var a = document.createElement('a')\n  a.href = url\n  document.body.appendChild(a)\n  a.click()\n</script>\n`\n}",
-      "title": "alf nu"
-    },
-    "0x66": {
-      "beCode": "// from alf.nu\nfunction escape (s) {\n  let url = 'javascript:console.log(' + JSON.stringify(s) + ')'\n  console.log(url)\n\n  let a = document.createElement('a')\n  a.href = url\n  document.body.appendChild(a)\n  a.click()\n}",
+      "beCode": "// from alf.nu\nfunction render (s) {\n  function escapeJs (s) {\n    return String(s)\n            .replace(/\\\\/g, '\\\\\\\\')\n            .replace(/'/g, '\\\\\\'')\n            .replace(/\"/g, '\\\\\"')\n            .replace(/`/g, '\\\\`')\n            .replace(/</g, '\\\\74')\n            .replace(/>/g, '\\\\76')\n            .replace(/\\//g, '\\\\/')\n            .replace(/\\n/g, '\\\\n')\n            .replace(/\\r/g, '\\\\r')\n            .replace(/\\t/g, '\\\\t')\n            .replace(/\\f/g, '\\\\f')\n            .replace(/\\v/g, '\\\\v')\n            // .replace(/\\b/g, '\\\\b')\n            .replace(/\\0/g, '\\\\0')\n  }\n  s = escapeJs(s)\n  return `\n<script>\n  var url = 'javascript:console.log(\"${s}\")'\n  var a = document.createElement('a')\n  a.href = url\n  document.body.appendChild(a)\n  a.click()\n</script>\n`\n}",
       "title": "alf nu"
     }
   }

@@ -6,6 +6,8 @@ function render (s) {
             .replace(/'/g, '\\\'')
             .replace(/"/g, '\\"')
             .replace(/`/g, '\\`')
+            .replace(/</g, '\\74')
+            .replace(/>/g, '\\76')
             .replace(/\//g, '\\/')
             .replace(/\n/g, '\\n')
             .replace(/\r/g, '\\r')
