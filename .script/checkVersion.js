@@ -14,11 +14,11 @@ if (dailyXyzReg.test(gitV)) {
   }
 }
 
-function getPkgVersion() {
+function getPkgVersion () {
   return require('../package.json').version
 }
 
-function getGitVersion() {
+function getGitVersion () {
   const spawnSync = require('child_process').spawnSync
   const gitReg = /\*\s*(.*)/
   let gitVersion = ''
@@ -30,7 +30,7 @@ function getGitVersion() {
   return gitVersion
 }
 
-function showError(e) {
+function showError (e) {
   const len = e.message.split('\n')[0].length * 1.6
   console.log('\x1b[31m', '='.repeat(len))
   console.log()

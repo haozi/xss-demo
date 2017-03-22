@@ -35,6 +35,6 @@ module.exports = {
     'no-lone-blocks': 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0, // 线上禁止 debugger
     'no-implicit-globals': 2, // 禁止隐式暴露全局变量
-    'no-alert': process.env.NODE_ENV === 'production' ? 2 : 0, // 线上禁止 alert
+    'no-alert': process.env.NODE_ENV === 'production' ? 2 : 0 // 线上禁止 alert
   }
 }
