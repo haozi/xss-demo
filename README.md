@@ -4,7 +4,7 @@
 ## 答案
 > 每层楼一题，开放式答案, 欢迎大家添加，并补充背景资料
 
-[https://github.com/haozime/xss-demo/issues/1](https://github.com/haozime/xss-demo/issues/1)
+[https://github.com/haozi/xss-demo/issues/1](https://github.com/haozi/xss-demo/issues/1)
 
 ## 开发
 ```
