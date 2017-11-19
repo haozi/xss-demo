@@ -8,7 +8,7 @@
 
 ## 开发
 ```
-yarn
+yarn # or npm install
 npm run dev
 npm run build
 ```
