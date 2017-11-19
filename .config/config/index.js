@@ -16,7 +16,7 @@ module.exports = {
     linkCss: false,
     vendor: false,
     buildHtml: true,
-    productionGzipExtensions: ['js', 'css'],
+    productionGzipExtensions: ['js', 'css']
   },
   dev: {
     env: require('./dev.env.js'),

@@ -42,7 +42,7 @@ export default {
       "title": "strip brackets 2"
     },
     "0x05": {
-      "beCode": "function render (input) {\n  input = input.replace(/-->/g, '😂')\n  return '<!--' + input + '-->'\n}",
+      "beCode": "function render (input) {\n  input = input.replace(/-->/g, '😂')\n  return '<!-- ' + input + ' -->'\n}",
       "title": "comment"
     },
     "0x06": {
