@@ -42,7 +42,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         hoist_funs: true,
         drop_debugger: true,
         unused: true,
-        drop_console: true,
+        drop_console: false,
         sequences: true,
         conditionals: true,
         booleans: true,
