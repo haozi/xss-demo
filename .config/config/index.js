@@ -10,7 +10,7 @@ module.exports = {
     index: path.resolve(__dirname, '../../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../../dist'),
     assetsSubDirectory: './',
-    assetsPublicPath: '',
+    assetsPublicPath: 'https://xss.haozi.me/',
     productionSourceMap: false,
     productionGzip: false,
     linkCss: false,
