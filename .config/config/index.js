@@ -10,13 +10,13 @@ module.exports = {
     index: path.resolve(__dirname, '../../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../../dist'),
     assetsSubDirectory: './',
-    assetsPublicPath: 'https://xss.haozi.me/',
+    assetsPublicPath: '',
     productionSourceMap: false,
     productionGzip: false,
     linkCss: false,
     vendor: false,
     buildHtml: true,
-    productionGzipExtensions: ['js', 'css'],
+    productionGzipExtensions: ['js', 'css']
   },
   dev: {
     env: require('./dev.env.js'),

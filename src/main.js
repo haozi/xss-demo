@@ -1,14 +1,25 @@
 /**
  * 这是网站的启动入口，用于初始化全局配置，不要在这里写过多业务逻辑
  */
+const win = window
+const document = win.document
+const location = win.location
 
-;(function (document) {
+{
   const s = document.createElement('script')
   s.src = 'https://s4.cnzz.com/z_stat.php?id=1261523779&web_id=1261523779'
   s.charset = 'utf-8'
   s.async = true
   document.body.appendChild(s)
-})(document)
+}
+
+{ // 收敛域名
+  const host = location.host
+  const target = 'xss.haozi.me'
+  if (process.env.NODE_ENV !== 'development' && host !== target) {
+    location.replace(location.href.replace(host, target))
+  }
+}
 
 const applicationCache = window.applicationCache
 if (applicationCache) {

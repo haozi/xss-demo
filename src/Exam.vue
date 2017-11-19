@@ -125,7 +125,6 @@
               ${beCode.trim()}
             )(\`${escapeJS(feCode)}\`)
           })()`
-          console.log(code)
           code = buble.transform(code).code
           tpl = String(new Function('return' + code)())
         } catch (e) {
