@@ -128,7 +128,7 @@
           code = buble.transform(code).code
           tpl = String(new Function('return' + code)())
         } catch (e) {
-          console.error('SERVER_ERROR ', e.stack)
+          console.error('SERVER_ERROR ', e.message)
         }
         this.raw = tpl
         return tpl
