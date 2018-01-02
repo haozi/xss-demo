@@ -26,14 +26,6 @@ const location = win.location
   document.body.appendChild(s)
 }
 
-{ // 收敛域名
-  const host = location.host
-  const target = 'xss.haozi.me'
-  if (process.env.NODE_ENV !== 'development' && host !== target) {
-    location.replace(location.href.replace(host, target))
-  }
-}
-
 { // 更新缓存
   const applicationCache = window.applicationCache
   if (applicationCache) {
