@@ -78,7 +78,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 
     new Manifest({
       cache: [
-        '[hash:3].js',
+        config.build.assetsPublicPath + '[hash:3].js',
         'https://s4.cnzz.com/z_stat.php?id=1261523779&web_id=1261523779'
       ],
       // Add time in comments.

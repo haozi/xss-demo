@@ -1,7 +1,6 @@
 .DS_Store
 node_modules/
 .idea/
-dist/
 .vscode*
 npm-debug.log
 test/unit/coverage
