@@ -1,6 +1,0 @@
-build/*.js
-config/*.js
-packages/**/build
-node_modules
-src/vendor
-src/data/exam/index.js
