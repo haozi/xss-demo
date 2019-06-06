@@ -4,7 +4,7 @@
       <div class="i-browser">
         <div class="hd">
           <div class="url">
-            <input type="text" :value="`http://xss.test/?input=${encodeURI(curData.feCode)}`">
+            <input type="text" :value="`http://xss.test/?input=${encodeURIComponent(curData.feCode)}`">
           </div>
         </div>
         <div class="bd">
@@ -31,7 +31,7 @@
     <div class="i-sidebar">
       <ul>
         <template v-for="(item, index) of examData.index">
-          <router-link :to="`/${item}`" tag="a">
+          <router-link :to="`/${item}`" tag="a" :key="index">
             {{index | to16}}
             <span v-if="examData.data[item].success" class="right">✓</span>
           </router-link>
@@ -47,7 +47,7 @@
   const buble = require('buble')
   import cookie from 'browser-cookies'
   import merge from 'lodash.merge'
-  import { ls, clone, escapeJS, compile } from './lib/util'
+  import { ls, escapeJS, compile } from './lib/util'
   import codeMirror from './components/codemirror'
   import sandboxText from './data/sandbox.raw'
   import exam from './data/exam/index.js'

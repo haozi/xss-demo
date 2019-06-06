@@ -1,8 +1,8 @@
 /**
  * 这是网站的启动入口，用于初始化全局配置，不要在这里写过多业务逻辑
  */
-import cookie from 'browser-cookies'
 import 'babel-polyfill'
+import cookie from 'browser-cookies'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
@@ -13,7 +13,7 @@ import Router from './router'
 import * as filters from './filter'
 import store from './vuex/store'
 // import {sync} from 'vuex-router-sync'
-
+Vue.config.devtools = false
 const win = window
 const document = win.document
 const location = win.location
@@ -32,7 +32,11 @@ const location = win.location
     applicationCache.addEventListener('updateready', () => {
       if (applicationCache.status === applicationCache.UPDATEREADY) {
         applicationCache.swapCache()
-        location.reload()
+        /* eslint no-alert: 0 */
+        const reload = confirm('服务端资源已更新，是否重新刷新页面？')
+        if (reload) {
+          location.reload()
+        }
       }
     })
   }
@@ -95,3 +99,8 @@ new Vue({
   template: '<App/>',
   components: {App}
 })
+
+window.Vue = window.Vue || {
+  config: {}
+}
+// window.Vue.config.devtools = false
