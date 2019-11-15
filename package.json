@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npm run lint && node .script/buildBecode.js && node .config/build.js",
     "clean": "rm -rf dist .nyc_output coverage; mkdir dist",
-    "deploy": "node .script/deploy.js",
+    "deploy": "npm run build && node .script/deploy.js",
     "dev": "sudo PORT=80 node .config/dev-server.js",
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src .config .script test/*_spec.js",
