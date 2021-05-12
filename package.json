@@ -30,7 +30,7 @@
     "babel-polyfill": "^6.26.0",
     "browser-cookies": "^1.2.0",
     "buble": "^0.15.2",
-    "codemirror": "^5.49.2",
+    "codemirror": "^5.58.2",
     "lodash.merge": "^4.6.2",
     "vue": "^2.6.10",
     "vue-lazyload": "^0.8.3",
