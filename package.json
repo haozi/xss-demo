@@ -94,5 +94,8 @@
     "webpack-manifest": "^1.0.8",
     "webpack-merge": "^1.1.2",
     "webpack-notifier": "^1.8.0"
+  },
+  "engines": {
+    "node": "^12"
   }
 }
