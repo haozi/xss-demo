@@ -80,7 +80,7 @@
     "ora": "^0.3.0",
     "raw-loader": "^0.5.1",
     "selenium-server": "^3.141.59",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.5",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.14.0",
     "style-loader": "^0.13.2",
